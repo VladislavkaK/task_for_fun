@@ -1,0 +1,53 @@
+.button__red {
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #FF0000;
+    background: white;
+    cursor: pointer;
+
+    &:hover {
+        background: #FF0000;
+        color: white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.button__green {
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #39B54A;
+    background: white;
+    cursor: pointer;
+
+    &:hover {
+        background: #39B54A;
+        color: white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.button__blue {
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #0071BC;
+    background: white;
+    cursor: pointer;
+
+    &:hover {
+        background: #0071BC;
+        color: white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
