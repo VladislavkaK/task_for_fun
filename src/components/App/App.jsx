@@ -3,10 +3,11 @@ import { Button, Modal, Table } from '../../components';
 import { connect } from 'react-redux';
 import { actionGetData }  from '../../actions/actionGetData';
 import { actionDeleteData } from '../../actions/actionDeleteData';
+import { actionCreateData } from '../../actions/actionCreateData';
 
 import './styles/style.scss';
 
-function App({ getData, data, lengthData, success, deleteData, isDelete }) {
+function App({ getData, data, lengthData, success, deleteData, isDelete, createData, editData }) {
   const [visible, setVisible] = useState(false);
 
   // componentDidMount
@@ -31,10 +32,10 @@ function App({ getData, data, lengthData, success, deleteData, isDelete }) {
                   <Button name="Добавить" color="green" onClick={onHandleModalVisible} />
               </div>
           </section>
-          {visible && <Modal setVisible={setVisible} />}
+          {visible && <Modal setVisible={setVisible} createData={createData} />}
       </main>
       <div className="content__body" >
-          <Table data={data} deleteData={deleteData} lengthData={lengthData}  />
+          <Table data={data} deleteData={deleteData} lengthData={lengthData} editData={editData}  />
       </div>
     </div>
   );
@@ -53,7 +54,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getData: () => dispatch(actionGetData()),
-        deleteData: (id) => dispatch(actionDeleteData(id))
+        deleteData: (id) => dispatch(actionDeleteData(id)),
+        createData: (title) => dispatch(actionCreateData(title)),
     }
 }
 

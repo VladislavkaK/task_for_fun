@@ -4,6 +4,7 @@ import Modal from './Modal';
 import Input from './Input';
 import Table from './Table';
 import MainRoute from './MainRoute';
+import EditPage from './EditPage';
 
 export {
     App,
@@ -11,5 +12,6 @@ export {
     Modal,
     Input,
     Table,
-    MainRoute
+    MainRoute,
+    EditPage
 }

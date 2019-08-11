@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../../components';
+import { Link } from 'react-router-dom';
 
 import './styles/style.scss';
 
@@ -22,7 +23,9 @@ const Table = ({ data, deleteData, lengthData }) => {
                     <div className="col tools">
                         <div className="button__container" >
                             <div className="button_edit" >
-                                <Button name="Редактировать" color="green" />
+                                <Link to={{pathname: `/items/${id}`, state: { id: id, title: title }}} >
+                                    <Button name="Редактировать" color="green" />
+                                </Link>    
                             </div>
                             <div className="button_delete" >
                                 <Button name="Удалить" color="red" onClick={() => onHandleDelete(id)} />

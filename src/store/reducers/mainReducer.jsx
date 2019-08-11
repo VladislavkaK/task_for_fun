@@ -1,5 +1,14 @@
 import * as types from '../../utils/constans';
-import { GET_DATA_RECEIVED, GET_DATA_ERROR } from './getDataReducer';
+import { 
+    GET_DATA_RECEIVED, 
+    GET_DATA_ERROR, 
+    DELETE_DATA_RECEIVED, 
+    DELETE_DATA_ERROR,
+    CREATE_DATA_RECEIVED,
+    CREATE_DATA_ERROR,
+    EDIT_DATA_RECEIVED,
+    EDIT_DATA_ERROR
+} from './getDataReducer';
 
 export default function(state = [], action) {
 
@@ -9,23 +18,17 @@ export default function(state = [], action) {
         case types.GET_DATA_ERROR:
             return GET_DATA_ERROR(state, action);
         case types.DELETE_DATA_RECEIVED:
-            const id = action.data.id;
-            let isDelete;    
-            const data = state.data.filter((data, i) => {
-                // если data.id === id, то удаляем значение
-                return data.id !== id
-            })
-            const length = data.length;
-
-            if (action.data.response.data) {
-                isDelete = action.data.response.data.success;
-            }
-
-            return { ...state, data, length, isDelete }
+            return DELETE_DATA_RECEIVED(state, action);
         case types.DELETE_DATA_ERROR:
-            const error = action.error;
-            console.log(error)
-            return { ...state, error }    
+            return DELETE_DATA_ERROR(state, action);
+        case types.CREATE_DATA_RECEIVED:
+            return CREATE_DATA_RECEIVED(state, action);
+        case types.CREATE_DATA_ERROR:
+            return CREATE_DATA_ERROR(state, action);    
+        case types.EDIT_DATA_RECEIVED:
+            return EDIT_DATA_RECEIVED(state, action);
+        case types.EDIT_DATA_ERROR:
+            return EDIT_DATA_ERROR(state, action);    
         default:
             return state;
     }
