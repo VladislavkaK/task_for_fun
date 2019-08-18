@@ -1,12 +1,12 @@
 import { fork } from 'redux-saga/effects';
-import wotcherGetData  from './wotchers/wotcherGetData';
-import wotcherDeleteData from './wotchers/wotcherDeleteData';
-import wotcherCreateData from './wotchers/wotcherCreateData';
-import wotcherEditData from './wotchers/wotcherEditData';
+import watcherGetData  from './watchers/watcherGetData';
+import watcherDeleteData from './watchers/watcherDeleteData';
+import watcherCreateData from './watchers/watcherCreateData';
+import watcherEditData from './watchers/watcherEditData';
 
 export default function* rootSaga () {
-    yield fork(wotcherGetData);
-    yield fork(wotcherDeleteData);
-    yield fork(wotcherCreateData);
-    yield fork(wotcherEditData);
+    yield fork(watcherGetData);
+    yield fork(watcherDeleteData);
+    yield fork(watcherCreateData);
+    yield fork(watcherEditData);
 }

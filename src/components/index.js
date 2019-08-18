@@ -5,6 +5,7 @@ import Input from './Input';
 import Table from './Table';
 import MainRoute from './MainRoute';
 import EditPage from './EditPage';
+import TableHeader from './TableHeader';
 
 export {
     App,
@@ -13,5 +14,6 @@ export {
     Input,
     Table,
     MainRoute,
-    EditPage
+    EditPage,
+    TableHeader
 }

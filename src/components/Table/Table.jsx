@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../components';
+import { Button, TableHeader } from '../../components';
 import { Link } from 'react-router-dom';
 
 import './styles/style.scss';
@@ -40,11 +40,7 @@ const Table = ({ data, deleteData, lengthData }) => {
     return (
         <>
             {lengthData > 0 && <section className="table">
-                <header className="table__header" >
-                    <div className="col colum1">№ задачи</div>
-                    <div className="col column2">Описание</div>
-                    <div className="col column3">Инструменты</div>
-                </header>
+                <TableHeader />
                 {content}
             </section>}
             {lengthData === 0 && <h3>н/д</h3>}

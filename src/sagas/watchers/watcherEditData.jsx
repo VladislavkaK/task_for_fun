@@ -3,6 +3,6 @@ import { workerEditData } from '../workers/workerEditData';
 
 import * as types from '../../utils/constans';
 
-export default function* wotcherEditData () {
+export default function* watcherEditData () {
     yield takeLatest(types.EDIT_DATA_SUCCESS, workerEditData);
 }

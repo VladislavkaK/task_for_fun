@@ -1,10 +1,10 @@
-function GET_DATA_RECEIVED(state, action) {
+function GET_DATA_RECEIVED(state, { response }) {
     let data, length, success;
 
-    if (action.response.data) {
-        data = action.response.data.data;
-        length = action.response.data.length;
-        success = action.response.data.success;
+    if (response.data) {
+        data = response.data.data;
+        length = response.data.length;
+        success = response.data.success;
     }
 
     return {
@@ -20,8 +20,7 @@ function GET_DATA_ERROR(state, action) {
     return {...state, error}
 }
 
-function DELETE_DATA_RECEIVED(state, action) {
-    const id = action.data.id;
+function DELETE_DATA_RECEIVED(state, { data: { id, response } }) {
     let isDelete;    
     const data = state.data.filter((data, i) => {
         // если data.id === id, то удаляем значение
@@ -30,8 +29,8 @@ function DELETE_DATA_RECEIVED(state, action) {
 
     const length = data.length;
 
-    if (action.data.response.data) {
-        isDelete = action.data.response.data.success;
+    if (response.data) {
+        isDelete = response.data.success;
     }
 
     return { ...state, data, length, isDelete }
@@ -42,13 +41,12 @@ function DELETE_DATA_ERROR(state, action) {
     return { ...state, error } 
 }
 
-function CREATE_DATA_RECEIVED(state, action) {
-    const title = action.data.title;
+function CREATE_DATA_RECEIVED(state, { data: { title, response } }) {
     let success, id;
 
-    if (action.data.response.data) {
-        success = action.data.response.data.success;
-        id = action.data.response.data.id;
+    if (response.data) {
+        success = response.data.success;
+        id = response.data.id;
     }
     const data = [...state.data, { id, title }];
     const length = data.length;
@@ -66,17 +64,15 @@ function CREATE_DATA_ERROR(state, action) {
     return { ...state, error } 
 }
 
-function EDIT_DATA_RECEIVED(state, action) {
-    const title = action.data.title;
-    const id = action.data.id;
+function EDIT_DATA_RECEIVED(state, { data: { id, title, response } }) {
     let success;
 
-    if (action.data.response.data) {
-        success = action.data.response.data.success;
+    if (response.data) {
+        success = response.data.success;
     }
 
     // Редактирование
-    const data = state.data.map((data)=>data.id === id ? {id, title} : data);
+    const data = state.data.map((data)=> data.id === id ? {id, title} : data);
 
     const length = data.length;
 
